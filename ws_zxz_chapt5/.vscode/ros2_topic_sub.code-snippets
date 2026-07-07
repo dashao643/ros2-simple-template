@@ -1,0 +1,43 @@
+{
+	"Minimal Subscriber Template": {
+		"prefix": "ros2_topic_sub",
+		"body": [
+			"#include \"rclcpp/rclcpp.hpp\"",
+			"#include \"${1:std_msgs/msg/string.hpp}\"",
+			"",
+			"using namespace std::placeholders;",
+			"",
+			"class ${2:MySub} : public rclcpp::Node",
+			"{",
+			"public:",
+			"  ${2:MySub}(std::string name)",
+			"    : Node(name)",
+			"  {",
+			"    sub_ = this->create_subscription<${3:std_msgs::msg::String}>(\"${4:topic_name}\", 10,",
+			"      std::bind(&${2:MySub}::subCallback, this, _1));",
+			"  }",
+			"",
+			"private:",
+			"  rclcpp::Subscription<${3:std_msgs::msg::String}>::SharedPtr sub_;",
+			"",
+			"  void subCallback(const ${3:std_msgs::msg::String}::SharedPtr &msg) const",
+			"  {",
+			"    RCLCPP_INFO(this->get_logger(), \"sub: %s\", msg->data.c_str());",
+			"  }",
+			"};",
+			"",
+			"int main(int argc, char* argv[])",
+			"{",
+			"  rclcpp::init(argc, argv);",
+      "\t",
+			"  auto node = std::make_shared<${2:MySub}>(\"${5:sub_node}\");",
+			"  rclcpp::spin(node);",
+      "\t",
+			"  rclcpp::shutdown();",
+      "\t",
+			"  return 0;",
+			"}"
+		],
+		"description": "ROS2 Minimal Subscriber Template (2 spaces indent)"
+	}
+}

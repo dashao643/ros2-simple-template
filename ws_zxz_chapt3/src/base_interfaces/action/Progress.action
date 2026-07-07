@@ -1,0 +1,8 @@
+# 请求
+int32 num
+---
+# 结果
+int32 sum
+---
+# 中间过程
+float64 progress
