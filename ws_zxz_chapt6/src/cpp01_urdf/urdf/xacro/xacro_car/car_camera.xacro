@@ -1,5 +1,30 @@
 <!-- 摄像头 -->
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
 
+  <!-- 声明变量 -->
+  <xacro:property name="camera_x" value="0.012"/>
+  <xacro:property name="camera_y" value="0.05"/>
+  <xacro:property name="camera_z" value="0.01"/>
+
+  <xacro:property name="camera_x_offset" value="${car_length / 2 - camera_x / 2}"/>
+  <xacro:property name="camera_y_offset" value="0.0"/>
+  <xacro:property name="camera_z_offset" value="${car_height / 2 + camera_z / 2}"/>
+
+  <!-- 创建照相机模型 -->
+  <link name="camera">
+    <visual>
+      <geometry>
+        <box size="${camera_x} ${camera_y} ${camera_z}"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+      <material name="red"/>
+    </visual>
+  </link>
+  <!-- 创建照相机关节 -->
+  <joint name="camera_to_baselink" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera"/>
+    <origin xyz="${camera_x_offset} ${camera_y_offset} ${camera_z_offset}" rpy="0.0 0.0 0.0"/>
+  </joint>
 
 </robot>
