@@ -1,0 +1,20 @@
+<robot name="hello_world">
+  <material name="test_color">
+  <!-- 0 - 1.0 -->
+  <color rgba="0.4 0.6 0.8 1.0"/>
+  </material>
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.5 0.5 0.5"/>
+        <!-- <sphere radius="0.5"/> -->
+        <!-- <cylinder radius="0.5" length="10"/> -->
+      </geometry>
+      <!-- <origin xyz="0.5 0.5 0.5" rpy="0.5 0.5 0.5"/> -->
+       <material name="test_color">
+        <!-- 0 - 1.0 -->
+        <color rgba="0.4 0.6 0.8 1.0"/>
+       </material>
+    </visual>
+  </link>
+</robot>

@@ -1,0 +1,6 @@
+<!-- xacro 文件包含 -->
+<robot name="my_robot" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:include filename="demo02.xacro"/>
+
+</robot>

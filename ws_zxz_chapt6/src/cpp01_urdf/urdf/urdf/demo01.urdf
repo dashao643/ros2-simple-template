@@ -1,6 +1,5 @@
-<!-- No Chinese -->
-
-<robot name="hello_world">
+<!-- 含有中文 -->
+<robot name="robot_test">
   <link name="base_link">
     <visual>
       <geometry>

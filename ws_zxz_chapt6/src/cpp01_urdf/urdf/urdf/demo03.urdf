@@ -1,0 +1,13 @@
+<robot name="robot_mesh">
+  <material name="test_color">
+  <color rgba="0.8 0.2 0.4 1.0"/>
+  </material>
+  <link name="base_link">
+    <visual>
+        <geometry>
+          <mesh filename="package://cpp01_urdf/meshes/burger_base.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+       <material name="test_color"/>
+    </visual>
+  </link>
+</robot>

@@ -1,0 +1,20 @@
+<!-- xacro 声明 调用 -->
+<robot name="my_robot" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <!-- 属性封装 -->
+  <xacro:property name="num1" value="20"/>
+  <xacro:property name="num2" value="30"/>
+
+  <car length="${num1}" width="${num2}"/>
+  <num value="${num1 + num2}"/>
+
+  <!-- 定义宏 -->
+  <xacro:macro name="cal_sum" params="num1 num2">
+    <sum value="${num1 + num2}"/>
+  </xacro:macro>
+
+  <!-- 调用宏 -->
+  <xacro:cal_sum num1="100" num2="30"/>
+  <xacro:cal_sum num1="10" num2="3"/>
+
+</robot>
